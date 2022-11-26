@@ -1,8 +1,7 @@
-package com.example.SpringHibernate;
+package com.example.springhibernate;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 
 /**
  * Тестовый проект для работы с Hibernate!
