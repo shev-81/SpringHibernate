@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+
+<div class="container" ng-controller="indexController">
+    <FORM novalidate ng-submit="createStudent()">
+        <SPAN>Введите имя нового студента:</SPAN>
+        <input class="form-control" type="text" placeholder="имя студента" ng-model="newStudent.name">
+                <BUTTON class="btn btn-primary" type="submit">Сохранить</BUTTON>
+    </FORM>
+    <h3>Список студентов</h3>
+    <table class="table table-hover" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>ID</td>
+            <td>Имя</td>
+            <td>Курсы</td>
+            <td>Действие</td>
+        </tr>
+        <tbody>
+        <tr ng-repeat="p in StudentList">
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.courses}}</td>
+            <td>
+                <button class="btn btn-danger" ng-click="deleteProduct(p.id)">Исключить</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <h3>Курсы студента</h3>
+    <p>{{Courses}} </p>
+
+</div>
+</body>
+</html>
