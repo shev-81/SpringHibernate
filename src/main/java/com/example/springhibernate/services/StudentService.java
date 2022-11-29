@@ -24,8 +24,8 @@ public class StudentService {
         return ConverterEntitiesToDto.toDtos(students);
     }
 
-    public StudentDto getStudentByName(String name){
-        Student student = studentsRepository.findByName(name);
+    public StudentDto getStudentByid(Integer id){
+        Student student = studentsRepository.findById(id.longValue()).orElse(new Student("No name"));
         return ConverterEntitiesToDto.toDto(student);
     }
 
@@ -33,8 +33,8 @@ public class StudentService {
         return studentsRepository.findIdByName(name);
     }
 
-    public void deleteStudentByName(String name){
-        Student student = studentsRepository.findByName(name);
+    public void deleteStudentByName(Integer id){
+        Student student = studentsRepository.findById(id.longValue()).get();
         studentsRepository.delete(student);
     }
 

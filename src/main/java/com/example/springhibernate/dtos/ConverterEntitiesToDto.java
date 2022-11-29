@@ -26,8 +26,7 @@ public class ConverterEntitiesToDto {
         for(Student s: students){
             StudentDto studentDto = new StudentDto(
                     s.getId(),
-                    s.getName(),
-                    s.getCourses().stream().map(Cours::getCourse).collect(Collectors.toList())
+                    s.getName()
             );
             list.add(studentDto);
         }

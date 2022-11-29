@@ -6,7 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,18 +31,18 @@ public class StudentsController {
         return studentService.getIdStudentByName(name);
     }
 
-    @GetMapping("/student/{name}")
-    public StudentDto getStudent(@PathVariable String name){
-        return studentService.getStudentByName(name);
+    @GetMapping("/student/{id}")
+    public StudentDto getStudent(@PathVariable Integer id){
+        return studentService.getStudentByid(id);
     }
 
-    @DeleteMapping("/{name}")
-    public void deleteStudent(@PathVariable String name){
-        studentService.deleteStudentByName(name);
+    @DeleteMapping("/{id}")
+    public void deleteStudent(@PathVariable Integer id){
+        studentService.deleteStudentByName(id);
     }
 
-    @PutMapping("/{name}")
-    public void createNewStudent(@PathVariable String name){
-        studentService.createNewStudent(name);
+    @PostMapping()
+    public void createNewStudent(@RequestBody StudentDto student){
+        studentService.createNewStudent(student.getName());
     }
 }

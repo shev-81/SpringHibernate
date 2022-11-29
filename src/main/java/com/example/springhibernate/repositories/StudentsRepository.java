@@ -17,4 +17,6 @@ public interface StudentsRepository extends CrudRepository<Student, Long> {
 
     @Query("select s from Student s WHERE s.name = :name")
     Student findByName(String name);
+
+
 }

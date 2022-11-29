@@ -17,4 +17,9 @@ public class StudentDto {
    private String name;
 
    private List<String> coursesName = new ArrayList<>();
+
+   public StudentDto(Long id, String name) {
+      this.id = id;
+      this.name = name;
+   }
 }

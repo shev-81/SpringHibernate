@@ -1,6 +1,6 @@
 angular.module('app', []).controller('indexController', function ($scope, $http) {
 
-    const contextPath = 'http://localhost:8000/students';
+    const contextPath = 'http://localhost:8000/hibernate/api/v1/students';
 
     $scope.loadStudents = function () {
         $http.get(contextPath)
@@ -10,8 +10,7 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
     };
 
     $scope.createStudent = function(){
-//    console.log($scope.newStudent);
-        $http.put(contextPath, $scope.newStudent
+        $http.post(contextPath, $scope.newStudent
                 ).then(function (response) {
                      $scope.loadStudents();
                 });
@@ -25,12 +24,11 @@ angular.module('app', []).controller('indexController', function ($scope, $http)
             });
     }
 
-    $scope.lookCourses = function (studentId) {
-        $http.get(contextPath +'/courses/' + studentId)
+    $scope.lookCourses = function (id) {
+        $http.get(contextPath +'/student/' + id)
             .then(function (response) {
-                $scope.Courses = response.data;
+                $scope.Courses = response.data.coursesName;
             });
     }
-
     $scope.loadStudents();
 });
